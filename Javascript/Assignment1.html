@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            height: 300px;
+            width: 300px;
+            background-color: bisque;
+        }
+        body{
+            position: absolute;
+            left: 39%;
+        }
+        .new_card{
+            width: 300px;
+            height: 70px;
+            background-color: bisque;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 style="padding-left: 10%;">Online Shopping</h1>
+        <ol>
+            <li>Tea : ₹100</li><br>
+            <li>Coffee : ₹500</li><br>
+            <li>Flour : ₹600</li><br>
+            <li>Sugar : ₹800</li><br>
+        </ol>
+
+        <button style="position: relative; left: 38%;" onclick="buy()">Buy Here</button>
+
+        <script>
+        
+        const Product = {
+            Tea : 100,
+            Coffee : 500,
+            Flour : 600,
+            Sugar : 800
+        }
+        function buy(){
+            let a = prompt("Enter your product name : ");
+            let b = prompt("Enter Quantity : ")
+            let ans = Product[a]*b;
+            document.getElementById('a2').innerHTML= "Total cost of " +b+ "kg of" +a+ " is : ₹"+ans;
+        }
+
+        </script>
+    </div>
+
+    <div class="new_card">
+       <h2 id="a2"></h2>
+    </div>
+    
+</body>
+</html>
