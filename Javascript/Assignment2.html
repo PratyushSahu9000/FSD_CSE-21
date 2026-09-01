@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="submit()">Click</button>
+    <script>
+        const Credentials = {
+            Uname : "Pratyush",
+            Password : "As2pass#1"
+        }
+
+        function submit(callback){
+            let a = prompt("Enter Username : ");
+            let b = prompt("Enter Password : ");
+            callback(Check(a,b));
+        }
+
+        function Check( uname, pass){
+            if(uname == Credentials.Uname && pass == Credentials.Password){
+                document.write("Login Succesfull");
+            }
+            else{
+                document.write("Credentials not Matched");
+            }   
+        }
+    </script>
+
+</body>
+</html>
