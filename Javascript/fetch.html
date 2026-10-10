@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #data {
+            width: 90%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            padding: 20px;
+            text-align: center;
+            border: 2px solid red;
+            border-radius: 8px;
+            color: red;
+            font-size: 20px;
+        }
+
+        .product-card img {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 15px auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+    <script>
+        const ele=document.getElementById("data");
+        const url="https://dummyjson.com/products";
+       async function loadproduct(){
+        try{
+            const res=await fetch(url);
+            const data=await res.json();   
+            console.log(data.products);
+            let row="";
+            data.products.map((i,index)=>{
+                row+=`
+                <article class="product-card">
+                    <h2>${i.title}</h2>
+                    <img src="${i.thumbnail}" alt="${i.title}">
+                    <p>Category: ${i.category}</p>
+                    <p>Price: $${i.price}</p>
+                </article>
+                    `;
+            })
+            ele.innerHTML=row;
+           
+        }
+        catch(err){
+            console.error("Error", err);
+        }
+       }
+       loadproduct();
+    </script>
+</body>
+</html>
